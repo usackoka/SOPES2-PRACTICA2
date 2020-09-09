@@ -1,5 +1,9 @@
-/SOPES2-PRACTICA2/build/
-/SOPES2-PRACTICA2/dist/
-/SOPES2-PRACTICA2/nbproject/
-/SOPES2-PRACTICA2/test/
-/SOPES2-PRACTICA2/build.xml
+**/nbproject/private/
+**/nbproject/Makefile-*.mk
+**/nbproject/Package-*.bash
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+© 2020 GitHub, Inc.
