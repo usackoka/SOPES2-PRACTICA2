@@ -57,14 +57,8 @@ public class Principal extends javax.swing.JFrame {
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         // TODO add your handling code here:
-
-        final int BOARD_WIDTH = 800;
-        final int BOARD_HEIGHT = 500;
         BarberoGUI gui = new BarberoGUI();
-        gui.setResizable(false);
-        gui.setSize(BOARD_WIDTH, BOARD_HEIGHT);
         gui.setLocationRelativeTo(null);
-        gui.setVisible(true);
     }//GEN-LAST:event_jLabel1MouseClicked
 
   /**
