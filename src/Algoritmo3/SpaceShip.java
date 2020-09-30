@@ -1,75 +1,80 @@
 package Algoritmo3;
 
-import java.awt.Color;
-import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
-import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
 
 /**
  *
  * @author Ronald
  */
-public class SpaceShip {
+public class SpaceShip extends GameObject {
 
-  private double xPosition;
-  private double xDirection;
-  private final double yPosition;  
+  private int lifePoints;
+  private int xDirection;
   private final int leftKey;
   private final int rightKey;
   private final int fireKey;
-  private Color color;
+  private final ArrayList<Missile> missiles;
 
   public SpaceShip(
-          double xPosition, double yPosition, int leftKey,
-          int fireKey, int rightKey
+          int xPos, int yPos, int leftKey, int fireKey,
+          int rightKey, ArrayList<Missile> missiles
   ) {
-    this.xPosition = xPosition;
-    this.yPosition = yPosition;
-    this.xDirection = 0;
+    super(xPos, yPos, Constants.SHIP_WIDTH, Constants.SHIP_HEIGHT);
     this.leftKey = leftKey;
     this.fireKey = fireKey;
-    this.rightKey = rightKey; 
-    this.color = Color.WHITE;
-  }
-  
-  public Rectangle2D getRectangle() {
-    return new Rectangle2D.Double(this.xPosition, this.yPosition, WIDTH, HEIGHT);
-  }
-  
-  public Color getColor() {
-    return color;
+    this.rightKey = rightKey;
+    this.missiles = missiles;
+    this.xDirection = 0;
+    this.lifePoints = 3;
   }
 
-  public void setColor(Color color) {
-    this.color = color;
+  @Override
+  public void move() {
+    this.xPos += this.xDirection;
   }
 
-  public void move(Rectangle limits) {
-    this.xPosition += this.xDirection;
-    if (this.xPosition > limits.getMaxX() - WIDTH) {
-      this.xPosition = limits.getMaxX() - WIDTH;
-    } else if (this.xPosition < 0) {
-      this.xPosition = 0;
-    }
+  public void setxPos(int xPos) {
+    this.xPos = xPos;
   }
 
-  /**
-   * Invoked when a key has been pressed.
-   * @param e
-   */
+  public int getxDirection() {
+    return xDirection;
+  }
+
+  public void fire() {
+    this.missiles.add(new Missile(xPos + Constants.SHIP_WIDTH / 2, yPos + 1));
+  }
+
   public void keyPressed(KeyEvent e) {
     int key = e.getKeyCode();
-    if (key == this.leftKey) this.xDirection = -1;
-    else if (key == this.rightKey) this.xDirection = 1;
+    if (key == this.leftKey) {
+      this.xDirection = -1;
+    } else if (key == this.rightKey) {
+      this.xDirection = 1;
+    } else if (key == this.fireKey) {
+      fire();
+    }
   }
 
   public void keyReleased(KeyEvent e) {
     int key = e.getKeyCode();
-    if (key == this.leftKey) this.xDirection = 0;
-    else if (key == this.rightKey) this.xDirection = 0;
+    if (key == this.leftKey) {
+      this.xDirection = 0;
+    } else if (key == this.rightKey) {
+      this.xDirection = 0;
+    }
   }
 
-  public static int HEIGHT = 15;
-  public static int WIDTH = 15;
+  public void reduceLife() {
+    if (this.isVisible) {
+      this.lifePoints--;
+      this.isVisible = lifePoints > 0;
+    }
+  }
+
+  public int getLifePoints() {
+    return lifePoints;
+  }
 
 }
