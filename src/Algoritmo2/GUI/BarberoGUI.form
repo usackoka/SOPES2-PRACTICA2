@@ -65,118 +65,148 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <Group type="103" groupAlignment="1" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="306" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lbl_entrando" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                      <Component id="lbl_saliendo" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="lbl_silla14" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lbl_silla8" min="-2" pref="62" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="lbl_silla15" min="-2" pref="62" max="-2" attributes="0"/>
+                                  <Component id="lbl_silla9" min="-2" pref="62" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="lbl_silla16" min="-2" pref="62" max="-2" attributes="0"/>
+                                  <Component id="lbl_silla10" min="-2" pref="62" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="lbl_silla17" min="-2" pref="62" max="-2" attributes="0"/>
+                                  <Component id="lbl_silla11" min="-2" pref="62" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="lbl_silla18" min="-2" pref="62" max="-2" attributes="0"/>
+                                  <Component id="lbl_silla12" min="-2" pref="62" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="lbl_silla19" min="-2" pref="62" max="-2" attributes="0"/>
+                                  <Component id="lbl_silla13" min="-2" pref="62" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lbl_silla8" min="-2" pref="62" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lbl_silla9" min="-2" pref="62" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lbl_silla10" min="-2" pref="62" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lbl_silla11" min="-2" pref="62" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lbl_silla12" min="-2" pref="62" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lbl_silla13" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="lbl_sillaPrincipal" min="-2" pref="62" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="lbl_barbero" min="-2" pref="62" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="lbl_silla2" min="-2" pref="62" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="lbl_silla3" min="-2" pref="62" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lbl_silla2" min="-2" pref="62" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lbl_silla3" min="-2" pref="62" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lbl_silla4" min="-2" pref="62" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lbl_silla5" min="-2" pref="62" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="lbl_silla0" min="-2" pref="62" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="lbl_silla1" min="-2" pref="62" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="lbl_silla4" min="-2" pref="62" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="lbl_silla5" min="-2" pref="62" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="lbl_silla0" min="-2" pref="62" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="lbl_silla1" min="-2" pref="62" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="lbl_silla6" min="-2" pref="62" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="lbl_silla7" min="-2" pref="62" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="lbl_silla6" min="-2" pref="62" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="lbl_silla7" min="-2" pref="62" max="-2" attributes="0"/>
-                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="lbl_sillaBarbero" min="-2" pref="62" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
+                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="318" max="-2" attributes="0"/>
-                          <Component id="lbl_sillaPrincipal" min="-2" pref="62" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="lbl_silla14" min="-2" pref="62" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="lbl_barbero" min="-2" pref="62" max="-2" attributes="0"/>
-                          <EmptySpace pref="334" max="32767" attributes="0"/>
-                          <Component id="lbl_sillaBarbero" min="-2" pref="62" max="-2" attributes="0"/>
+                          <Component id="lbl_silla15" min="-2" pref="62" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="lbl_silla16" min="-2" pref="62" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="lbl_silla17" min="-2" pref="62" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="lbl_silla18" min="-2" pref="62" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="lbl_silla19" min="-2" pref="62" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lbl_sillaBarbero" min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="lbl_barbero" min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="lbl_sillaPrincipal" min="-2" pref="62" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="163" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="lbl_silla0" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="lbl_silla1" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="lbl_saliendo" min="-2" pref="62" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="lbl_entrando" min="-2" pref="62" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lbl_sillaBarbero" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="lbl_barbero" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="lbl_sillaPrincipal" min="-2" pref="62" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="lbl_silla0" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="lbl_silla1" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="lbl_silla6" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="lbl_silla7" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="lbl_silla5" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="lbl_silla3" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="lbl_silla4" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="lbl_silla2" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="lbl_silla12" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="lbl_silla13" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="lbl_silla11" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="lbl_silla9" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="lbl_silla10" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="lbl_silla8" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="lbl_silla18" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="lbl_silla19" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="lbl_silla17" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="lbl_silla15" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="lbl_silla16" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="lbl_silla14" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="lbl_silla6" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="lbl_silla7" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="lbl_silla5" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="lbl_silla3" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="lbl_silla4" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="lbl_silla2" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="lbl_silla12" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="lbl_silla13" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="lbl_silla11" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="lbl_silla9" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="lbl_silla10" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="lbl_silla8" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="lbl_silla18" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="lbl_silla19" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="lbl_silla17" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="lbl_silla15" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="lbl_silla16" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="lbl_silla14" alignment="1" min="-2" pref="62" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="645" max="-2" attributes="0"/>
+                  <EmptySpace pref="19" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -389,6 +419,39 @@
             </Property>
           </Properties>
         </Component>
+        <Component class="javax.swing.JLabel" name="lbl_entrando">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder/>
+              </Border>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbl_saliendo">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder/>
+              </Border>
+            </Property>
+          </Properties>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="txt_estados">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>

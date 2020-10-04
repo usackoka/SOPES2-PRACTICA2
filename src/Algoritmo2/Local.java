@@ -25,9 +25,14 @@ public class Local {
     LinkedList<Silla> sillasEspera;
     LinkedList<JLabel> sillasEspera_labels;
     JLabel barbero_label;
+    JLabel label_salida;
+    JLabel label_entrada;
     
-    public Local(LinkedList<JLabel> sillasEspera_labels, JLabel barbero_label, JLabel sillaPrincipal_label, JLabel sillaBarbero_label){
+    public Local(LinkedList<JLabel> sillasEspera_labels, JLabel barbero_label, JLabel sillaPrincipal_label, JLabel sillaBarbero_label,
+            JLabel label_salida, JLabel label_entrada){
         //inicializo las sillas
+        this.label_salida = label_salida;
+        this.label_entrada = label_entrada;
         this.barbero_label = barbero_label;
         sillaBarbero = new Silla(sillaBarbero_label);
         sillaPrincipal = new Silla(sillaPrincipal_label);
