@@ -7,13 +7,14 @@
 package Algoritmo2;
 
 import java.util.LinkedList;
+import javax.swing.JLabel;
 
 public class Principal {
     
     Local local;
     
-    public void run(){
-        this.local = new Local();
+    public void run(LinkedList<JLabel> sillasEspera_labels, JLabel barbero_label, JLabel sillaPrincipal_label, JLabel sillaBarbero_label){
+        this.local = new Local(sillasEspera_labels, barbero_label, sillaPrincipal_label, sillaBarbero_label);
         //se crea el barbero
         Barbero barbero = new Barbero("Hilo barbero", this.local);
         barbero.start();

@@ -6,11 +6,15 @@
 
 package Algoritmo2;
 
+import javax.swing.JLabel;
+
 public class Silla {
     Persona persona;
+    JLabel silla;
     
-    public Silla(){
+    public Silla(JLabel silla){
         this.persona = null;
+        this.silla = silla;
     }
     
     public void vaciar(){

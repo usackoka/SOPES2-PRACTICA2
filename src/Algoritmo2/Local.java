@@ -6,7 +6,11 @@
 
 package Algoritmo2;
 
+import java.awt.Image;
 import java.util.LinkedList;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 public class Local {
     
@@ -19,14 +23,17 @@ public class Local {
     Silla sillaBarbero;
     Silla sillaPrincipal;
     LinkedList<Silla> sillasEspera;
+    LinkedList<JLabel> sillasEspera_labels;
+    JLabel barbero_label;
     
-    public Local(){
+    public Local(LinkedList<JLabel> sillasEspera_labels, JLabel barbero_label, JLabel sillaPrincipal_label, JLabel sillaBarbero_label){
         //inicializo las sillas
-        sillaBarbero = new Silla();
-        sillaPrincipal = new Silla();
+        this.barbero_label = barbero_label;
+        sillaBarbero = new Silla(sillaBarbero_label);
+        sillaPrincipal = new Silla(sillaPrincipal_label);
         sillasEspera = new LinkedList<>();
         for (int i = 0; i < 20; i++) {
-            sillasEspera.add(new Silla());
+            sillasEspera.add(new Silla(sillasEspera_labels.get(i)));
         }
     }
     
@@ -48,5 +55,11 @@ public class Local {
             }
         }
         return false;
+    }
+    
+    public void setEstadoSilla(JLabel label, String imagen){
+        ImageIcon fot = new ImageIcon(getClass().getResource("../resources/"+imagen+".png"));
+        Icon icono = new ImageIcon(fot.getImage().getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_DEFAULT));
+        label.setIcon(icono);
     }
 }
