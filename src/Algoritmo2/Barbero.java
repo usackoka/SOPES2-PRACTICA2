@@ -8,14 +8,20 @@ package Algoritmo2;
 
 public class Barbero extends Persona{
     
-    public Barbero(String nombreHilo){
+    Local local;
+    
+    public Barbero(String nombreHilo, Local local){
         super(nombreHilo);
-    }
-
-    @Override
-    public void run() {
-        super.run(); //To change body of generated methods, choose Tools | Templates.
+        this.local = local;
+        //siento al barbero
+        this.local.sentarBarbero(this);
     }
     
+    public void cortarPelo(Persona persona){
+        this.setEstado(ESTADO.CORTANDO_PELO);
+        persona.setEstado(ESTADO.CORTANDOSE_PELO);
+        this.sleep(this.local.TIEMPO_CORTAR_PELO);
+        persona.setEstado(ESTADO.SALIENDO_CITA);
+    }
     
 }

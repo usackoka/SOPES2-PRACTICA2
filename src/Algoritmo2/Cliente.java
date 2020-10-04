@@ -7,8 +7,33 @@
 package Algoritmo2;
 
 public class Cliente extends Persona{
-    public Cliente(String nombreHilo){
+    
+    Local local;
+    
+    public Cliente(String nombreHilo, Local local){
         super(nombreHilo);
+        this.local = local;
         this.setEstado(ESTADO.ENTRANDO_CITA);
     }
+
+    @Override
+    public void run() {
+        //empieza viendo que está haciendo el barbero
+        this.sleep(this.local.TIEMPO_VER_AL_BARBERO);
+        //pregunto si el barbero está durmiendo
+        if(this.local.sillaBarbero.estaOcupada()){
+            //me siento en la silla para que me corten el pelo
+            this.local.sillaPrincipal.sentar(this);
+        }else{
+            //pregunto si hay sillas disponibles para sentarme
+            if(!this.local.sentarEspera(this)){
+                //si no hay sillas disponibles me voy.
+                this.setEstado(ESTADO.SALIENDO_CITA);
+                this.sleep(this.local.TIEMPO_SALIR_CITA);
+                this.closeThread();
+            }
+        }
+    }
+    
+    
 }

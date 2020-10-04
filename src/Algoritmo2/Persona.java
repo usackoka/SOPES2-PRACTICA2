@@ -32,30 +32,25 @@ public abstract class Persona extends Thread{
         this.estado = estado;
     }
     
-    public void cortarPelo(Persona persona){
+    public int seconds(int seconds){
+        return seconds*1000;
+    }
+    
+    public void sleep(int seconds){
         try {
-            this.setEstado(ESTADO.CORTANDO_PELO);
-            persona.setEstado(ESTADO.CORTANDOSE_PELO);
-            Thread.sleep(seconds(3));
-            persona.setEstado(ESTADO.SALIENDO_CITA);
+            Thread.sleep(seconds(seconds));
         } catch (InterruptedException ex) {
             System.out.println(ex);
         }
     }
     
-    private int seconds(int seconds){
-        return seconds*1000;
-    }
-    
-    @Override
-    public void run() {
-        while(this.activo){
-            try {
-                System.out.println(this.getName()+" activo");
-                Thread.sleep(seconds(5));
-            } catch (InterruptedException ex) {
-                System.out.println(ex);
-            }
+    public void closeThread(){
+        try {
+            this.stop();
+            this.finalize();
+            this.destroy();
+        } catch (Throwable ex) {
+            System.out.println(ex);
         }
     }
 }

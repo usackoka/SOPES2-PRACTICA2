@@ -6,16 +6,21 @@
 
 package Algoritmo2;
 
+import java.util.LinkedList;
+
 public class Principal {
     
-    Barbero barbero;
+    Local local;
     
     public void run(){
+        this.local = new Local();
         //se crea el barbero
-        barbero = new Barbero("Hilo barbero");
-        //el barbero empieza durmiendo
-        barbero.setEstado(Persona.ESTADO.DURMIENDO);
-        //inicio el hilo
+        Barbero barbero = new Barbero("Hilo barbero", this.local);
         barbero.start();
+    }
+    
+    public void generarCliente(){
+        Cliente cliente = new Cliente("Hilo cliente", this.local);
+        cliente.start();
     }
 }
