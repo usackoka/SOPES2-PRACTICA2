@@ -92,7 +92,7 @@ public class BarberoGUI extends javax.swing.JFrame {
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
         // TODO add your handling code here:
         if(p!=null){
-            //p.crearCliente();
+            p.generarCliente();
         }
     }//GEN-LAST:event_jMenu2MouseClicked
 

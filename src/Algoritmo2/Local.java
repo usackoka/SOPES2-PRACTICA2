@@ -12,6 +12,7 @@ public class Local {
     
     //TIEMPOS
     int TIEMPO_CORTAR_PELO = 5; //segundos
+    int TIEMPO_REVISAR_SALA_BARBERO = 1;//segundos
     int TIEMPO_VER_AL_BARBERO = 2;//segundos
     int TIEMPO_SALIR_CITA = 2;//segundos
     
@@ -33,6 +34,7 @@ public class Local {
         this.sillaBarbero.sentar(barbero);
         barbero.setEstado(Persona.ESTADO.DURMIENDO);
     }
+    
     public void sentarCliente(Cliente cliente){
         this.sillaPrincipal.sentar(cliente);
     }

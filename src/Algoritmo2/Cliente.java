@@ -31,6 +31,9 @@ public class Cliente extends Persona{
                 this.setEstado(ESTADO.SALIENDO_CITA);
                 this.sleep(this.local.TIEMPO_SALIR_CITA);
                 this.closeThread();
+            }else{
+                //si me logré sentar, me quedo esperando a que me toque cortarme el pelo
+                
             }
         }
     }

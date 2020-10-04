@@ -30,10 +30,12 @@ public abstract class Persona extends Thread{
     
     public void setEstado(ESTADO estado){
         this.estado = estado;
+        System.out.println("Estado: "+this.estado);
+        System.out.println("Hilo: "+this.getName()+", "+this.getId());
     }
     
     public int seconds(int seconds){
-        return seconds*1000;
+        return Integer.parseInt(String.valueOf(seconds*1000));
     }
     
     public void sleep(int seconds){
