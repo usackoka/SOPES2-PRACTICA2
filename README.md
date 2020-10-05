@@ -1,9 +1,9 @@
 # SOPES2-PRACTICA2
 
 ### Integrantes
-## Oscar René Cuéllar Mancilla - 201503712 - Algoritmo 2
-## Jefferson José Linares Cerón - 201504448 - Algoritmo 1
-## Ronald Neftali Berdúo Morales - 201504420 - Algoritmo 3
+#### Oscar René Cuéllar Mancilla - 201503712 - Algoritmo 2
+#### Jefferson José Linares Cerón - 201504448 - Algoritmo 1
+#### Ronald Neftali Berdúo Morales - 201504420 - Algoritmo 3
 
 ## Problema 2: Barbero
 
