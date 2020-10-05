@@ -1,5 +1,11 @@
 package Algoritmo3.GUI;
 
+import Algoritmo3.Constants;
+import Algoritmo3.Missile;
+import Algoritmo3.SpaceShip;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 
 /**
@@ -8,36 +14,53 @@ import javax.swing.JFrame;
  */
 public class SpaceInvaders extends JFrame {
 
-  private final GameBoard gameBoard;
+  private final ArrayList<Missile> missiles;
+  private final SpaceShip ship1;
+  private final SpaceShip ship2;
+  private final Board board;
 
   public SpaceInvaders() {
     super("Space Invaders");
-    this.gameBoard = new GameBoard();
+    int maxHeight = Constants.GAME_HEIGHT - Constants.SHIP_HEIGHT - 49;
+    int maxWidth = Constants.GAME_WIDTH - 16;
+    this.missiles = new ArrayList<>();
+    this.ship1 = new SpaceShip(
+            maxWidth / 4, maxHeight, KeyEvent.VK_A,
+            KeyEvent.VK_S, KeyEvent.VK_D, this.missiles
+    );
+    this.ship2 = new SpaceShip(
+            3 * maxWidth / 4, maxHeight, KeyEvent.VK_J,
+            KeyEvent.VK_K, KeyEvent.VK_L, this.missiles
+    );
+    this.board = new Board(this.ship1, this.ship2, this.missiles);
     initialSetup();
   }
 
-  private void initialSetup() {    
+  private void initialSetup() {
     setResizable(false);
-    setSize(BOARD_WIDTH, BOARD_HEIGHT);
+    setSize(Constants.GAME_WIDTH, Constants.GAME_HEIGHT);
     setLocationRelativeTo(null);
-    add(this.gameBoard);
-    addKeyListener(new KeyController(
-      this.gameBoard.getShip1(), this.gameBoard.getShip2()
-    ));
+    addKeyListener(new KeyController());
+    add(this.board);
   }
-  
+
   public void startGame() {
-    this.gameBoard.start();
+    this.board.start();
   }
 
-  public static void main(String[] args) {
-    SpaceInvaders invaders = new SpaceInvaders();
-    invaders.setDefaultCloseOperation(EXIT_ON_CLOSE);
-    invaders.setVisible(true);
-    invaders.startGame();
-  }
+  private class KeyController extends KeyAdapter {
 
-  public static final int BOARD_WIDTH = 800;
-  public static final int BOARD_HEIGHT = 500;
+    @Override
+    public void keyPressed(KeyEvent e) {
+      ship1.keyPressed(e);
+      ship2.keyPressed(e);
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+      ship1.keyReleased(e);
+      ship2.keyReleased(e);
+    }
+  }
 
 }
