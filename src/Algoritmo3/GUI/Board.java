@@ -1,7 +1,7 @@
 package Algoritmo3.GUI;
 
 import Algoritmo3.Alien;
-import Algoritmo3.Constants;
+import Algoritmo3.SpaceConstants;
 import Algoritmo3.Missile;
 import Algoritmo3.SpaceShip;
 import java.awt.Color;
@@ -11,6 +11,8 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.logging.Level;
@@ -23,21 +25,22 @@ import javax.swing.JPanel;
  */
 public class Board extends JPanel {
 
+  private ExecutorService executorService;
   private final ReentrantReadWriteLock padlock;
   private final ArrayList<Missile> missiles;
   private final ArrayList<Alien> aliens;
   private final SpaceShip ship1;
   private final SpaceShip ship2;
   private boolean isPlaying;
-  private int alienCounter;
+  private int alienCounter;  
 
-  public Board(SpaceShip ship1, SpaceShip ship2, ArrayList<Missile> missiles) {
+  public Board(SpaceShip ship1, SpaceShip ship2, ArrayList<Missile> missiles) {    
     this.padlock = new ReentrantReadWriteLock(true);
     this.missiles = missiles;
     this.aliens = new ArrayList<>();
     this.ship1 = ship1;
     this.ship2 = ship2;
-    this.isPlaying = true;
+    this.isPlaying = false;
     this.alienCounter = 1;
     initialSetup();
   }
@@ -49,11 +52,11 @@ public class Board extends JPanel {
   private void createAlien() {
     this.padlock.writeLock().lock();
     try {
-      this.alienCounter += 3;
+      this.alienCounter += SpaceConstants.AMOUNT_OF_NEW_ALIENS;
       Random randX = new Random();
       Random randY = new Random();
       Rectangle r = getBounds();
-      int xLimit = (int) r.getMaxX() - Constants.ALIEN_WIDTH;
+      int xLimit = (int) r.getMaxX() - SpaceConstants.ALIEN_WIDTH;
       int yLimit = (int) r.getMaxY();
       int xPos, yPos;
       for (int i = 0; i < this.alienCounter; i++) {
@@ -73,7 +76,7 @@ public class Board extends JPanel {
       int minY = (int) r.getMinY();
       missiles.forEach((missile) -> {
         missile.move();
-        if (missile.getyPos() + Constants.MISSILE_HEIGHT <= minY) {
+        if (missile.getyPos() + SpaceConstants.MISSILE_HEIGHT <= minY) {
           missile.setVisible(false);
         }
         Rectangle boundsMissile = missile.getBounds();
@@ -129,7 +132,7 @@ public class Board extends JPanel {
     int maxX = (int) r.getMaxX();
     if (ship1.isVisible() && ship2.isVisible()) {
       moveShip(ship1, minX, ship2.getxPos());
-      moveShip(ship2, ship1.getxPos() + Constants.SHIP_WIDTH, maxX);
+      moveShip(ship2, ship1.getxPos() + SpaceConstants.SHIP_WIDTH, maxX);
     } else if (ship1.isVisible()) {
       moveShip(ship1, minX, maxX);
     } else if (ship2.isVisible()) {
@@ -143,18 +146,38 @@ public class Board extends JPanel {
     ship.move();
     if (ship.getxPos() <= minX) {
       ship.setxPos(minX);
-    } else if (ship.getxPos() + Constants.SHIP_WIDTH >= maxX) {
-      ship.setxPos(maxX - Constants.SHIP_WIDTH);
+    } else if (ship.getxPos() + SpaceConstants.SHIP_WIDTH >= maxX) {
+      ship.setxPos(maxX - SpaceConstants.SHIP_WIDTH);
     }
   }
 
   public void start() {
-    Thread gameThread = new Thread(new GameThread());
-    Thread alienCreatorThread = new Thread(new AlienCreatorThread());
-    Thread movieAliensThread = new Thread(new MoveAliensThread());
-    gameThread.start();
-    alienCreatorThread.start();
-    movieAliensThread.start();
+    if (!this.isPlaying) {
+      this.executorService = Executors.newCachedThreadPool();
+      this.alienCounter = 1;
+      this.ship1.setVisible(true);
+      this.ship1.restoreLife();
+      this.ship2.setVisible(true);
+      this.ship2.restoreLife();
+      this.aliens.clear();
+      this.missiles.clear();
+      this.isPlaying = true;
+      executorService.execute(new Thread(new GameThread()));
+      executorService.execute(new Thread(new AlienCreatorThread()));
+      executorService.execute(new Thread(new MoveAliensThread()));            
+    }    
+  }
+
+  public void stop() {
+    if (this.isPlaying) {
+      this.isPlaying = false;
+      executorService.shutdown();
+      try {
+        executorService.awaitTermination(2, TimeUnit.SECONDS);
+      } catch (InterruptedException ex) {
+        Logger.getLogger(Board.class.getName()).log(Level.SEVERE, null, ex);
+      }
+    }
   }
 
   public void draw(Graphics2D g) {
@@ -216,6 +239,15 @@ public class Board extends JPanel {
     Graphics2D g2 = (Graphics2D) g;
     draw(g2);
   }
+  
+  private void sleep(int milliseconds) {
+    try {
+      Thread.sleep(milliseconds);
+    } catch (InterruptedException ex) {
+      Logger.getLogger(Board.class.getName()).log(Level.SEVERE, null, ex);
+      Thread.currentThread().interrupt();
+    }
+  }
 
   private class AlienCreatorThread implements Runnable {
 
@@ -223,12 +255,7 @@ public class Board extends JPanel {
     public void run() {
       while (isPlaying) {
         createAlien();
-        try {
-          TimeUnit.SECONDS.sleep(Constants.ALIEN_CREATION_SPEED);
-        } catch (InterruptedException ex) {
-          Logger.getLogger(AlienCreatorThread.class.getName()).log(Level.SEVERE, null, ex);
-          Thread.currentThread().interrupt();
-        }
+        sleep(SpaceConstants.ALIEN_CREATION_SPEED);
       }
     }
 
@@ -240,12 +267,7 @@ public class Board extends JPanel {
     public void run() {
       while (isPlaying) {
         moveAliens();
-        try {
-          TimeUnit.MILLISECONDS.sleep(Constants.ALIENS_MOVE_SPEED);
-        } catch (InterruptedException ex) {
-          Logger.getLogger(AlienCreatorThread.class.getName()).log(Level.SEVERE, null, ex);
-          Thread.currentThread().interrupt();
-        }
+        sleep(SpaceConstants.ALIENS_MOVE_SPEED);
       }
     }
 
@@ -257,14 +279,10 @@ public class Board extends JPanel {
     public void run() {
       while (isPlaying) {
         repaint();
-        try {
-          TimeUnit.MILLISECONDS.sleep(Constants.GAME_SPEED);
-        } catch (InterruptedException ex) {
-          Logger.getLogger(AlienCreatorThread.class.getName()).log(Level.SEVERE, null, ex);
-          Thread.currentThread().interrupt();
-        }
+        sleep(SpaceConstants.GAME_SPEED);
       }
     }
 
   }
+
 }

@@ -9,7 +9,7 @@ public class Alien extends GameObject {
   private int lifePoints;
 
   public Alien(int xPos, int yPos) {
-    super(xPos, yPos, Constants.ALIEN_WIDTH, Constants.ALIEN_HEIGHT);
+    super(xPos, yPos, SpaceConstants.ALIEN_WIDTH, SpaceConstants.ALIEN_HEIGHT);
     this.lifePoints = 2;
   }
 

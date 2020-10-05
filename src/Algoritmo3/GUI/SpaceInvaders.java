@@ -1,12 +1,14 @@
 package Algoritmo3.GUI;
 
-import Algoritmo3.Constants;
+import Algoritmo3.SpaceConstants;
 import Algoritmo3.Missile;
 import Algoritmo3.SpaceShip;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 
 /**
  *
@@ -21,8 +23,8 @@ public class SpaceInvaders extends JFrame {
 
   public SpaceInvaders() {
     super("Space Invaders");
-    int maxHeight = Constants.GAME_HEIGHT - Constants.SHIP_HEIGHT - 49;
-    int maxWidth = Constants.GAME_WIDTH - 16;
+    int maxHeight = SpaceConstants.GAME_HEIGHT - SpaceConstants.SHIP_HEIGHT - 62;
+    int maxWidth = SpaceConstants.GAME_WIDTH - 16;
     this.missiles = new ArrayList<>();
     this.ship1 = new SpaceShip(
             maxWidth / 4, maxHeight, KeyEvent.VK_A,
@@ -38,10 +40,34 @@ public class SpaceInvaders extends JFrame {
 
   private void initialSetup() {
     setResizable(false);
-    setSize(Constants.GAME_WIDTH, Constants.GAME_HEIGHT);
-    setLocationRelativeTo(null);
-    addKeyListener(new KeyController());
+    setSize(SpaceConstants.GAME_WIDTH, SpaceConstants.GAME_HEIGHT);
+    setLocationRelativeTo(null);    
     add(this.board);
+    JMenuBar menubar = new JMenuBar();
+    JMenu menuStart = new JMenu("Start");
+    JMenu menuStop = new JMenu("Stop");
+    menuStop.setVisible(false);
+    menuStart.addMouseListener(new java.awt.event.MouseAdapter() {
+      @Override
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        menuStop.setVisible(true);
+        board.start();
+        menuStart.setVisible(false);
+        
+      }
+    });    
+    menuStop.addMouseListener(new java.awt.event.MouseAdapter() {
+      @Override
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        menuStart.setVisible(true);
+        board.stop();
+        menuStop.setVisible(false);
+      }
+    });
+    menubar.add(menuStart);
+    menubar.add(menuStop);
+    setJMenuBar(menubar);
+    addKeyListener(new KeyController());
   }
 
   public void startGame() {
