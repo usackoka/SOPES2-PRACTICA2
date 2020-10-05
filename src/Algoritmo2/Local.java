@@ -6,10 +6,7 @@
 
 package Algoritmo2;
 
-import java.awt.Image;
 import java.util.LinkedList;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class Local {
@@ -45,6 +42,7 @@ public class Local {
     public void sentarBarbero(Barbero barbero){
         this.sillaBarbero.sentar(barbero);
         barbero.setEstado(Persona.ESTADO.DURMIENDO);
+        this.sillaBarbero.setEstadoSilla(barbero_label, "");
     }
     
     public void sentarCliente(Cliente cliente){

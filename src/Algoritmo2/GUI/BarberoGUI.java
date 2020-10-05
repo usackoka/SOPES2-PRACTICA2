@@ -244,7 +244,7 @@ public class BarberoGUI extends javax.swing.JFrame {
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
         // TODO add your handling code here:
         p = new Principal();
-        p.run(sillas, lbl_barbero, lbl_sillaPrincipal, lbl_sillaBarbero, lbl_entrando, lbl_saliendo);
+        p.run(sillas, lbl_barbero, lbl_sillaPrincipal, lbl_sillaBarbero, lbl_saliendo, lbl_entrando);
     }//GEN-LAST:event_jMenu1MouseClicked
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked

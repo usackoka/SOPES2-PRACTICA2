@@ -39,6 +39,11 @@ public class Silla {
     }
     
     public void setEstadoSilla(JLabel label, String imagen){
+        if(imagen==""){
+            label.setIcon(null);
+            return;
+        }
+        
         ImageIcon fot = new ImageIcon(getClass().getResource("resources/"+imagen+".png"));
         Icon icono = new ImageIcon(fot.getImage().getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_DEFAULT));
         label.setIcon(icono);
