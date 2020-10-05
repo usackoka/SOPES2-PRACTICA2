@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 public class Local {
     
     //TIEMPOS
-    int TIEMPO_CORTAR_PELO = 5; //segundos
+    int TIEMPO_CORTAR_PELO = 8; //segundos
     int TIEMPO_REVISAR_SALA_BARBERO = 1;//segundos
     int TIEMPO_VER_AL_BARBERO = 2;//segundos
     int TIEMPO_SALIR_CITA = 2;//segundos
@@ -34,11 +34,11 @@ public class Local {
         this.label_salida = label_salida;
         this.label_entrada = label_entrada;
         this.barbero_label = barbero_label;
-        sillaBarbero = new Silla(sillaBarbero_label);
-        sillaPrincipal = new Silla(sillaPrincipal_label);
+        sillaBarbero = new Silla(sillaBarbero_label, "sillOcupadaBarbero", "sill");
+        sillaPrincipal = new Silla(sillaPrincipal_label, "sillOcupada", "sill");
         sillasEspera = new LinkedList<>();
         for (int i = 0; i < 20; i++) {
-            sillasEspera.add(new Silla(sillasEspera_labels.get(i)));
+            sillasEspera.add(new Silla(sillasEspera_labels.get(i), "sillaEsperaOcupada", "sillaEspera"));
         }
     }
     
@@ -60,11 +60,5 @@ public class Local {
             }
         }
         return false;
-    }
-    
-    public void setEstadoSilla(JLabel label, String imagen){
-        ImageIcon fot = new ImageIcon(getClass().getResource("../resources/"+imagen+".png"));
-        Icon icono = new ImageIcon(fot.getImage().getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_DEFAULT));
-        label.setIcon(icono);
     }
 }

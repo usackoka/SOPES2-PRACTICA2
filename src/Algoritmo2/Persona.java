@@ -6,6 +6,7 @@
 
 package Algoritmo2;
 
+import Algoritmo2.GUI.BarberoGUI;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -30,8 +31,9 @@ public abstract class Persona extends Thread{
     
     public void setEstado(ESTADO estado){
         this.estado = estado;
-        System.out.println("Estado: "+this.estado);
-        System.out.println("Hilo: "+this.getName()+", "+this.getId());
+        BarberoGUI.txt_estados.append("======== CAMBIO ESTADO ==========\n");
+        BarberoGUI.txt_estados.append("Estado: "+this.estado+"\n");
+        BarberoGUI.txt_estados.append("Hilo: "+this.getName()+", "+this.getId()+"\n");
     }
     
     public int seconds(int seconds){
