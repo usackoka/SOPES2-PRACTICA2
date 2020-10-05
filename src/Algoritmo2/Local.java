@@ -50,7 +50,8 @@ public class Local {
     }
     
     public boolean sentarEspera(Cliente cliente){
-        for (Silla silla : sillasEspera) {
+        for (int i = 0; i<20; i++) {
+            Silla silla = sillasEspera.get(i);
             if(!silla.estaOcupada()){
                 silla.sentar(cliente);
                 cliente.setEstado(Persona.ESTADO.ESPERANDO);
