@@ -44,6 +44,8 @@ public class Barbero extends Persona{
                 this.local.sillasEspera.getFirst().vaciar();
                 //le corto el pelo a esa persona
                 this.cortarPelo(first);
+                //re ordeno las sillas.
+                reOrdenarSillas();
             }else if(this.local.sillaPrincipal.estaOcupada()){
                 //pregunto si alguien se sentó en la silla
                 this.cortarPelo(this.local.sillaPrincipal.persona);
@@ -55,4 +57,10 @@ public class Barbero extends Persona{
         }
     }
     
+    public void reOrdenarSillas(){
+        for (int i = 0; i < this.local.sillasEspera.size()-1 ; i++) {
+            Persona temp = this.local.sillasEspera.get(i+1).persona;
+            this.local.sillasEspera.get(i).sentar(temp);
+        }
+    }
 }

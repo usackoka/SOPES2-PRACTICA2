@@ -31,7 +31,11 @@ public class Silla {
     
     public void sentar(Persona persona){
         this.persona = persona;
-        setEstadoSilla(this.silla, this.imgOcupada);
+        if(persona == null){
+            setEstadoSilla(this.silla, this.imgVacia);
+        }else{
+            setEstadoSilla(this.silla, this.imgOcupada);
+        }
     }
     
     public boolean estaOcupada(){
