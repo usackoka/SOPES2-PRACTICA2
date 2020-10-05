@@ -7,7 +7,7 @@ package Algoritmo3;
 public class Missile extends GameObject {
 
   public Missile(int xPos, int yPos) {
-    super(xPos, yPos, Constants.MISSILE_WIDTH, Constants.MISSILE_HEIGHT);
+    super(xPos, yPos, SpaceConstants.MISSILE_WIDTH, SpaceConstants.MISSILE_HEIGHT);
   }
 
   @Override
