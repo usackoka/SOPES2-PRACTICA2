@@ -216,7 +216,7 @@ public class Board extends JPanel {
     Graphics2D g2 = (Graphics2D) g;
     draw(g2);
   }
-
+ 
   private class AlienCreatorThread implements Runnable {
 
     @Override

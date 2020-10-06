@@ -17,5 +17,6 @@ public class Constants {
   public static final int GAME_SPEED = 3;
   public static final int ALIEN_CREATION_SPEED = 25;
   public static final int ALIENS_MOVE_SPEED = 40;
+  
 
 }
