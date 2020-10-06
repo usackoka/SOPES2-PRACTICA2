@@ -1,6 +1,6 @@
 package GUI;
 
-import Algoritmo2.Barbero;
+import Algoritmo1.WareHouse;
 import Algoritmo2.GUI.BarberoGUI;
 import Algoritmo3.GUI.SpaceInvaders;
 
@@ -119,6 +119,9 @@ public class Principal extends javax.swing.JFrame {
 
   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     // TODO add your handling code here:
+    WareHouse w = new WareHouse();
+    w.init();
+    
   }//GEN-LAST:event_jButton2ActionPerformed
 
   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
