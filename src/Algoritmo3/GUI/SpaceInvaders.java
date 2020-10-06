@@ -70,10 +70,6 @@ public class SpaceInvaders extends JFrame {
     addKeyListener(new KeyController());
   }
 
-  public void startGame() {
-    this.board.start();
-  }
-
   private class KeyController extends KeyAdapter {
 
     @Override
