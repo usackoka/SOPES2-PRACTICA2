@@ -19,11 +19,14 @@ public class Menu extends javax.swing.JPanel {
      * Creates new form Menu
      */
     ExecutorService ejecutor;
-    Window dash;
-    public Menu(ExecutorService ejecutor, Window dash) {
+    Window window;
+    Dashboard dash;
+    public Menu(ExecutorService ejecutor, Window windows, Dashboard dash) {
         initComponents();
         this.ejecutor = ejecutor;
+        this.window = windows;
         this.dash = dash;
+        
     }
     
 
@@ -116,6 +119,7 @@ public class Menu extends javax.swing.JPanel {
                 Thread t = WareHouse.threads.get(i);
                 if(option == 0){
                     //detener
+                    this.dash.finaliceSimulation();
                     t.stop();
                 }
             }
@@ -126,11 +130,12 @@ public class Menu extends javax.swing.JPanel {
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        ThreadAction(0);
-        this.dash.setVisible(false);
+        
         try {
-            this.ejecutor.shutdown();
-            this.ejecutor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+            ThreadAction(0);
+            this.window.setVisible(false);
+            //this.ejecutor.shutdown();
+            //this.ejecutor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
         } catch (Exception e) {
         }
         System.out.println("Salir");

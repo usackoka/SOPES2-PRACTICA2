@@ -56,7 +56,7 @@ public abstract class Persona extends Thread{
         try {
             this.stop();
             this.finalize();
-            this.destroy();
+            //this.destroy();
         } catch (Throwable ex) {
             System.out.println(ex);
         }

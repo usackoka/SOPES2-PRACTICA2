@@ -99,7 +99,7 @@ public class Dashboard extends JPanel {
         
         
         //Inicializar componentes varios
-        this.menu = new Menu(ejecutor, ventana);
+        this.menu = new Menu(ejecutor, ventana, this);
         this.setVisible(true);
         this.setBounds(0, 0, Constantes.WIDTH_WINDOW, Constantes.HEIGHT);
         this.add(menu, BorderLayout.NORTH);
@@ -125,7 +125,6 @@ public class Dashboard extends JPanel {
         ejecutor.execute(checkProviderThread);
         ejecutor.execute(checkClientsThread);
         ejecutor.shutdown();
-        
         
     }
 
@@ -196,7 +195,7 @@ public class Dashboard extends JPanel {
                 arreglo.add(pos_relativa_x);
                 int x_final = x_init + (pos_relativa_x * Constantes.WIDTH);
                 int y = 550;
-                System.out.println("Cliente creado en: " + pos_relativa_x);
+                //System.out.println("Cliente creado en: " + pos_relativa_x);
                 Client c = new Client(x_final, y, this, this.cola);
                 this.clients.add(c);
                 c.activate();
@@ -243,7 +242,7 @@ public class Dashboard extends JPanel {
                 arreglo.add(pos_relativa_x);
                 int x_final = x_init + (pos_relativa_x * Constantes.WIDTH);
                 int y = 550;
-                System.out.println("Proveedor creado en: " + pos_relativa_x);
+                //System.out.println("Proveedor creado en: " + pos_relativa_x);
                 Provider p = new Provider(x_final, y, this, this.cola);
                 this.providers.add(p);
                 p.activate();

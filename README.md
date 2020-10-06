@@ -687,6 +687,13 @@ public class Provider extends FigureDashboard implements Runnable {
 
 ```
 
+- [Constantes.java](./src/Algoritmo1/Constantes.java)
+
+Este archivo contiene únicamente las constantes para definir, propiedades de la interfaces,
+como tamaños y velocidades.
+
+
+
 ## Problema 2: Barbero
 
 ### Arquitectura de la solución
