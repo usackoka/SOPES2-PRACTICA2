@@ -12,7 +12,7 @@ import Algoritmo1.Constantes;
 import Algoritmo1.FigureDashboard;
 import Algoritmo1.Provider;
 import Algoritmo1.WareHouse;
-import Algoritmo3.Constants;
+import Algoritmo3.SpaceConstants;
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -342,7 +342,7 @@ public class Dashboard extends JPanel {
                 Menu.clients_in_queue.setText("Clientes en Cola: "+Dashboard.clients_in_queue);
                 Menu.providers_in_queue.setText("Proveedores en Cola: "+ " "+Dashboard.providers_in_queue);
                 try {
-                    TimeUnit.MILLISECONDS.sleep(Constants.GAME_SPEED);
+                    TimeUnit.MILLISECONDS.sleep(SpaceConstants.GAME_SPEED);
                 } catch (InterruptedException ex) {
                     //Logger.getLogger(Dashboard.getName()).log(Level.SEVERE, null, ex);
                     Thread.currentThread().interrupt();

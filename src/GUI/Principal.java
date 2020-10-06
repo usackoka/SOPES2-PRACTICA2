@@ -1,6 +1,7 @@
 package GUI;
 
 import Algoritmo1.WareHouse;
+import Algoritmo2.GUI.BarberoGUI;
 import Algoritmo3.GUI.SpaceInvaders;
 
 /**
@@ -59,6 +60,11 @@ public class Principal extends javax.swing.JFrame {
     jLabel3.setText("Problema 2 : El Barbero Dormilón");
 
     jButton3.setText("Abrir");
+    jButton3.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton3ActionPerformed(evt);
+      }
+    });
 
     jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
     jLabel4.setText("Practica 2 - Sistemas Operativos 2");
@@ -122,8 +128,13 @@ public class Principal extends javax.swing.JFrame {
     SpaceInvaders invaders = new SpaceInvaders();
     invaders.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     invaders.setVisible(true);
-    invaders.startGame();
   }//GEN-LAST:event_jButton1ActionPerformed
+
+  private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    BarberoGUI gui = new BarberoGUI();
+    gui.setLocationRelativeTo(null);
+    gui.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+  }//GEN-LAST:event_jButton3ActionPerformed
 
   /**
    * @param args the command line arguments

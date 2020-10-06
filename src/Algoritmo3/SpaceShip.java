@@ -20,7 +20,7 @@ public class SpaceShip extends GameObject {
           int xPos, int yPos, int leftKey, int fireKey,
           int rightKey, ArrayList<Missile> missiles
   ) {
-    super(xPos, yPos, Constants.SHIP_WIDTH, Constants.SHIP_HEIGHT);
+    super(xPos, yPos, SpaceConstants.SHIP_WIDTH, SpaceConstants.SHIP_HEIGHT);
     this.leftKey = leftKey;
     this.fireKey = fireKey;
     this.rightKey = rightKey;
@@ -43,7 +43,7 @@ public class SpaceShip extends GameObject {
   }
 
   public void fire() {
-    this.missiles.add(new Missile(xPos + Constants.SHIP_WIDTH / 2, yPos + 1));
+    this.missiles.add(new Missile(xPos + SpaceConstants.SHIP_WIDTH / 2, yPos + 1));
   }
 
   public void keyPressed(KeyEvent e) {
@@ -64,6 +64,10 @@ public class SpaceShip extends GameObject {
     } else if (key == this.rightKey) {
       this.xDirection = 0;
     }
+  }
+
+  public void restoreLife() {
+    this.lifePoints = 3;
   }
 
   public void reduceLife() {
