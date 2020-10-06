@@ -1,8 +1,11 @@
 # SOPES2-PRACTICA2
 
 ### Integrantes
+
 #### Oscar René Cuéllar Mancilla - 201503712 - Algoritmo 2
+
 #### Jefferson José Linares Cerón - 201504448 - Algoritmo 1
+
 #### Ronald Neftali Berdúo Morales - 201504420 - Algoritmo 3
 
 ## Problema 2: Barbero
@@ -10,20 +13,22 @@
 ### Arquitectura de la solución
 
 Se tienen las siguientes clases en Java
-* Barbero.java
-* Cliente.java
-* Local.java
-* Persona.java
-* Principal.java
-* Silla.java
+
+- Barbero.java
+- Cliente.java
+- Local.java
+- Persona.java
+- Principal.java
+- Silla.java
 
 Cada una de estas clases tiene su relación correspondiente.
 
 La clase abstracta principal es Persona.java
+
 ```java
 public abstract class Persona extends Thread{
     public ESTADO estado;
-    
+
     // Una persona puede estar en alguno de los siguientes estados.
     public enum ESTADO {
         DURMIENDO,
@@ -33,12 +38,12 @@ public abstract class Persona extends Thread{
         SALIENDO_CITA,
         ENTRANDO_CITA,
     }
-    
+
     // Una persona puede realizar alguno de los siguientes métodos.
     public void setEstado(ESTADO estado){
         // Cambia el estado de la persona a uno que se le especifique
     }
-    
+
     // Tiempo que la persona tarda en realizar determinada acción.
     public void sleep(int seconds){
         try {
@@ -51,8 +56,9 @@ public abstract class Persona extends Thread{
 ```
 
 De esta clase parten las siguientes clases
-* Cliente.java
-* Barbero.java
+
+- Cliente.java
+- Barbero.java
 
 Cliente es la clase con la que se generan las instancias de los nuevos clientes que entran a la barbería.
 Barbero es la clase encargada de cortarles el pelo a los clientes.
@@ -65,19 +71,19 @@ public class Silla {
     JLabel silla;
     String imgOcupada;
     String imgVacia;
-    
+
     public Silla(JLabel silla, String imgOcupada, String imgVacia){
         this.persona = null;
         this.silla = silla;
         this.imgOcupada = imgOcupada;
         this.imgVacia = imgVacia;
     }
-    
+
     public void vaciar(){
         this.persona = null;
         setEstadoSilla(this.silla, this.imgVacia);
     }
-    
+
     public void sentar(Persona persona){
         this.persona = persona;
         if(persona == null){
@@ -86,17 +92,17 @@ public class Silla {
             setEstadoSilla(this.silla, this.imgOcupada);
         }
     }
-    
+
     public boolean estaOcupada(){
         return this.persona != null;
     }
-    
+
     public void setEstadoSilla(JLabel label, String imagen){
         if(imagen==""){
             label.setIcon(null);
             return;
         }
-        
+
         ImageIcon fot = new ImageIcon(getClass().getResource("resources/"+imagen+".png"));
         Icon icono = new ImageIcon(fot.getImage().getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_DEFAULT));
         label.setIcon(icono);
@@ -105,10 +111,11 @@ public class Silla {
 ```
 
 Una silla posee atributos tales como
-* Persona sentada en la silla
-* Label a representar en la interfáz gráfica de la silla
-* Imagen a mostrar cuando la silla está ocupada.
-* Imagen a mostrar cuando la silla está vacía.
+
+- Persona sentada en la silla
+- Label a representar en la interfáz gráfica de la silla
+- Imagen a mostrar cuando la silla está ocupada.
+- Imagen a mostrar cuando la silla está vacía.
 
 Esta clase no hace uso de Hilos, ya que es nada más una representación abstracta de las sillas.
 
@@ -116,13 +123,13 @@ Local, esta clase es la que contiene la mayor parte de la lógica del algoritmo.
 
 ```java
 public class Local {
-    
+
     //TIEMPOS
     int TIEMPO_CORTAR_PELO = 8; //segundos
     int TIEMPO_REVISAR_SALA_BARBERO = 1;//segundos
     int TIEMPO_VER_AL_BARBERO = 2;//segundos
     int TIEMPO_SALIR_CITA = 2;//segundos
-    
+
     Silla sillaBarbero;
     Silla sillaPrincipal;
     LinkedList<Silla> sillasEspera;
@@ -130,7 +137,7 @@ public class Local {
     JLabel barbero_label;
     JLabel label_salida;
     JLabel label_entrada;
-    
+
     public Local(LinkedList<JLabel> sillasEspera_labels, JLabel barbero_label, JLabel sillaPrincipal_label, JLabel sillaBarbero_label,
             JLabel label_salida, JLabel label_entrada){
         //inicializo las sillas
@@ -144,17 +151,17 @@ public class Local {
             sillasEspera.add(new Silla(sillasEspera_labels.get(i), "sillaEsperaOcupada", "sillaEspera"));
         }
     }
-    
+
     public void sentarBarbero(Barbero barbero){
         this.sillaBarbero.sentar(barbero);
         barbero.setEstado(Persona.ESTADO.DURMIENDO);
         this.sillaBarbero.setEstadoSilla(barbero_label, "");
     }
-    
+
     public void sentarCliente(Cliente cliente){
         this.sillaPrincipal.sentar(cliente);
     }
-    
+
     public boolean sentarEspera(Cliente cliente){
         for (int i = 0; i<20; i++) {
             Silla silla = sillasEspera.get(i);
@@ -170,10 +177,11 @@ public class Local {
 ```
 
 En esta clase se tienen las siguientes propiedades:
-* TIEMPO_CORTAR_PELO
-* TIEMPO_REVISAR_SALA_BARBERO
-* TIEMPO_VER_AL_BARBERO
-* TIEMPO_SALIR_CITA
+
+- TIEMPO_CORTAR_PELO
+- TIEMPO_REVISAR_SALA_BARBERO
+- TIEMPO_VER_AL_BARBERO
+- TIEMPO_SALIR_CITA
 
 Estas propiedades indican el tiempo que tardan las entidades en realizar dichos procesos.
 
@@ -389,7 +397,7 @@ El siguiente metodo es para iniciar los atributos de la pantalla del juego, tant
 private void initialSetup() {
   setResizable(false);
   setSize(SpaceConstants.GAME_WIDTH, SpaceConstants.GAME_HEIGHT);
-  setLocationRelativeTo(null);    
+  setLocationRelativeTo(null);
   add(this.board);
   JMenuBar menubar = new JMenuBar();
   JMenu menuStart = new JMenu("Start");
@@ -401,9 +409,9 @@ private void initialSetup() {
       menuStop.setVisible(true);
       board.start();
       menuStart.setVisible(false);
-      
+
     }
-  });    
+  });
   menuStop.addMouseListener(new java.awt.event.MouseAdapter() {
     @Override
     public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -444,7 +452,7 @@ private class KeyController extends KeyAdapter {
 Esta clase pinta el tableo del juego
 
 ```java
-public class Board extends JPanel 
+public class Board extends JPanel
 ```
 
 Contiene las siguientes variables:
@@ -574,14 +582,14 @@ private void moveShips() {
     // Para la nave 2 su limite inferior es la posicion en x de
     // la nave 1, y su limite superior es el del tablero
     moveShip(ship2, ship1.getxPos() + SpaceConstants.SHIP_WIDTH, maxX);
-  } 
+  }
   // Si alguna de las naves no esta presente, sus limites
   // son los del tablero
   else if (ship1.isVisible()) {
     moveShip(ship1, minX, maxX);
   } else if (ship2.isVisible()) {
     moveShip(ship2, minX, maxX);
-  } 
+  }
   // Si ambas no estan presentes el juego termino
   else {
     gameOver();
@@ -616,8 +624,8 @@ public void start() {
     this.isPlaying = true;
     executorService.execute(new Thread(new GameThread()));
     executorService.execute(new Thread(new AlienCreatorThread()));
-    executorService.execute(new Thread(new MoveAliensThread()));            
-  }    
+    executorService.execute(new Thread(new MoveAliensThread()));
+  }
 }
 ```
 
@@ -683,5 +691,4 @@ Una vision grafica de como interactuan los hilos seria esta:
 
 ![Algoritmo3](img/Algoritmo3.png)
 
-
-
+En esta imagen se puede observar que los tres hilos utilizados utilizan la lista de aliens, para esto se utilizo, **ReentrantReadWriteLock** para bloquear al momento que se este leyendo de la lista, y se este insertando datos en ella. La lista de misiles tambien se bloquea.
